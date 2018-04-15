@@ -1,0 +1,66 @@
+version: "3"
+
+services:
+  web_1:
+    image: dailyprime/web:latest
+    container_name: web_1
+    restart: unless-stopped
+    networks:
+      - dailyprime-net
+    environment:
+      DOGSTATSD_HOST: dd_agent
+      DOGSTATSD_PORT: 8125
+      NODE_ENV: production
+      PORT: 8080
+    links:
+      - dd_agent
+
+  web_2:
+    image: dailyprime/web:latest
+    container_name: web_2
+    restart: unless-stopped
+    networks:
+      - dailyprime-net
+    environment:
+      DOGSTATSD_HOST: dd_agent
+      DOGSTATSD_PORT: 8125
+      NODE_ENV: production
+      PORT: 8080
+    links:
+      - dd_agent
+
+  proxy:
+    image: dailyprime/proxy-prod:latest
+    container_name: proxy
+    restart: unless-stopped
+    networks:
+      - dailyprime-net
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /tmp/letsencrypt/www:/tmp/letsencrypt/www
+    links:
+      - web_1
+      - web_2
+
+  dd_agent:
+    image: datadog/agent:latest
+    container_name: dd_agent
+    networks:
+      - dailyprime-net
+    environment:
+        DD_API_KEY: ${DD_API_KEY}
+        DD_DOGSTATSD_NON_LOCAL_TRAFFIC: "true"
+        DD_LOGS_ENABLED: "true"
+    volumes:
+      - /opt/datadog-agent/conf.d:/conf.d:ro
+      - /opt/datadog-agent/run:/opt/datadog-agent/run:rw
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+networks:
+  dailyprime-net:
+    driver: bridge

@@ -1,0 +1,48 @@
+version: "3"
+services:
+  web:
+    build: ./web/.
+    container_name: web
+    command: npm run dev
+    restart: unless-stopped
+    networks:
+      dailyprime-net:
+        # When running locally, the nginx proxy is expecting two upstream servers to be
+        # available. However, locally, I don't need high-availability. As such, I'm going
+        # to create one instance of "web" and just give it the two aliases that are being
+        # used in the nginx proxy-pass definition.
+        aliases:
+          - web_1
+          - web_2
+    environment:
+      DOGSTATSD_HOST: dd_agent
+      DOGSTATSD_PORT: 8125
+      NODE_ENV: development
+      PORT: 8080
+    volumes:
+      - ./web:/var/www/dailyprime.me
+      - /var/www/dailyprime.me/node_modules
+    links:
+      - dd_agent
+
+  proxy:
+    build: ./proxy/.
+    container_name: proxy
+    restart: unless-stopped
+    networks:
+      - dailyprime-net
+    ports:
+      - 80:80
+    links:
+      - web
+
+  dd_agent:
+    build: ./statsd-mock/.
+    container_name: dd_agent
+    restart: unless-stopped
+    networks:
+      - dailyprime-net
+
+networks:
+  dailyprime-net:
+    driver: bridge

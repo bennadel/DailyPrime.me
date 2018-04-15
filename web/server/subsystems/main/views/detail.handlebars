@@ -1,0 +1,64 @@
+
+<div class="breadcrumbs">
+	<a href="/" class="breadcrumbs__parent">Homepage</a>
+	<span class="breadcrumbs__separator">/</span>
+	<a href="/primers" class="breadcrumbs__parent">The Daily Primers</a>
+	<span class="breadcrumbs__separator">/</span>
+	<span class="breadcrumbs__node">{{ video.author.name }} &mdash; {{ video.title }}</span>
+</div>
+
+<h1>
+	{{ video.author.name }} &mdash; {{ video.title }}
+</h1>
+
+<figure class="inspiration">
+	<div class="inspiration__asset">
+		<iframe
+			src="{{ video.source }}"
+			frameborder="0"
+			allow="autoplay; encrypted-media"
+			allowfullscreen
+			class="inspiration__iframe">
+		</iframe>
+	</div>
+</figure>
+
+<h2>
+	About This Source Of Inpsiration
+</h2>
+
+<ul class="inspiration-metadata">
+	<li class="inspiration-metadata__item">
+		<strong>Title</strong>: {{ video.title }}
+	</li>
+	<li class="inspiration-metadata__item">
+		<strong>Author</strong>: 
+		{{#if video.author.url }}
+			<a href="{{ video.author.url }}">{{ video.author.name }}</a>
+		{{else}}
+			{{ video.author.name }}
+		{{/if}}
+	</li>
+	<li class="inspiration-metadata__item">
+		<strong>Source</strong>: <a href="{{ video.url }}">{{ video.url }}</a>
+	</li>
+	<li class="inspiration-metadata__item">
+		<strong>Added</strong>: {{ video.addedAt }}
+	</li>
+	{{#if video.recommendation }}
+		<li class="inspiration-metadata__item">
+			<strong>Recommended By</strong>:
+			{{#if video.recommendation.url }}
+				<a href="{{ video.recommendation.url }}">{{ video.recommendation.name }}</a>
+			{{else}}
+				{{ video.recommendation.name }}
+			{{/if}}
+		</li>
+	{{/if}}
+</ul>
+
+{{#if video.notes }}
+	{{{ video.notes }}}
+{{/if}}
+
+{{> main/views/includes/about }}

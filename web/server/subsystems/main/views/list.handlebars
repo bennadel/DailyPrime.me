@@ -1,0 +1,25 @@
+
+<div class="breadcrumbs">
+	<a href="/" class="breadcrumbs__parent">Homepage</a>
+	<span class="breadcrumbs__separator">/</span>
+	<span class="breadcrumbs__node">The Daily Primers</span>
+</div>
+
+<h1>
+	The Daily Primers
+</h1>
+
+<p>
+	The following videos are randomly rotated and displayed on the homepage. However, you
+	can directly link to any one of them below:
+</p>
+
+<ul>
+	{{#each videos }}
+		<li>
+			<a href="/primers/{{ id }}" title="Daily Prime: {{ title }}">{{ author.name }} &mdash; {{ title }}</a>
+		</li>
+	{{/each}}
+</ul>
+
+{{> main/views/includes/about }}

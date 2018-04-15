@@ -1,0 +1,19 @@
+{
+  "name": "dailyprime",
+  "version": "1.0.1",
+  "description": "A website that primes you for a day of excellence and compassion.",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon -L --watch ./server ./server/index.js"
+  },
+  "author": "Ben Nadel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.16.2",
+    "express-handlebars": "3.0.0",
+    "hot-shots": "5.2.0",
+    "nodemon": "1.17.1",
+    "npm": "5.7.1"
+  },
+  "devDependencies": {}
+}

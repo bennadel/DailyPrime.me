@@ -1,0 +1,170 @@
+
+body {
+	color: #333333 ;
+	font-family: "Lora", serif ;
+	font-size: 18px ;
+	line-height: 150% ;
+	margin: 0px 0px 0px 0px ;
+}
+
+h1 {
+	border-bottom: 2px solid #333333 ;
+	font-family: "Oswald", sans-serif ;
+	font-size: 30px ;
+	font-weight: 400 ;
+	line-height: 130% ;
+	margin: 30px 0px 30px 0px ;
+	padding-bottom: 8px ;
+	text-transform: uppercase ;
+}
+
+h2 {
+	border-bottom: 1px solid #333333 ;
+	font-family: "Oswald", sans-serif ;
+	font-size: 26px ;
+	font-weight: 400 ;
+	line-height: 130% ;
+	margin: 50px 0px 30px 0px ;
+	padding-bottom: 8px ;
+	text-transform: uppercase ;
+}
+
+p {
+	margin: 30px 0px 30px 0px ;
+}
+
+blockquote {
+	border-left: 5px solid #EAEAEA ;
+	font-style: italic ;
+	padding: 7px 0px 7px 20px ;
+}
+
+blockquote > *:first-child {
+	margin-top: 0px ;
+}
+
+blockquote > *:last-child {
+	margin-bottom: 0px ;
+}
+
+a {
+	color: #000000 ;
+	font-weight: 700 ;
+}
+
+.page-header {
+	background-color: #1E2631 ;
+	color: #FFFFFF ;
+	margin-bottom: 30px ;
+	padding: 15px 0px 15px 0px ;
+	text-align: center ;
+}
+
+.page-header__title {
+	font-family: "Oswald", sans-serif ;
+	font-size: 30px ;
+	font-weight: 500 ;
+	letter-spacing: 1px ;
+	line-height: 35px ;
+	text-transform: uppercase ;
+}
+
+.page-header__title a {
+	color: #FFFFFF ;
+	text-decoration: none ;
+}
+
+.page-header__title a:hover {
+	text-decoration: underline ;
+}
+
+.page-body {
+	margin: 20px 20px 20px 20px ;
+}
+
+.breadcrumbs {
+	color: #666666 ;
+	font-size: 16px ;
+	line-height: 130% ;
+}
+
+.breadcrumbs__parent {
+	color: inherit ;
+	display: inline-block ;
+}
+
+.breadcrumbs__separator {
+	display: inline-block ;
+	margin-left: 4px ;
+	margin-right: 4px ;
+}
+
+.breadcrumbs__node {
+	display: inline-block ;
+}
+
+.inspiration {
+	margin: 30px 0px 30px 0px ;
+}
+
+.inspiration__asset {
+	padding-bottom: 56.25% ;
+	position: relative ;
+	width: 100% ;
+}
+
+.inspiration__iframe {
+	height: 100% ;
+	left: 0px ;
+	position: absolute ;
+	top: 0px ;
+	width: 100% ;
+}
+
+.inspiration__caption {
+	font-size: 16px ;
+	margin-top: 10px ;
+}
+
+.inspiration__title {
+	color: #666666 ;
+	line-height: 140% ;
+}
+
+.inspiration__permalink {
+	display: none ;
+}
+
+.inspiration-metadata {}
+
+.inspiration-metadata__item {
+	margin-bottom: 5px ;
+	margin-top: 5px ;
+	word-wrap: break-word ;
+}
+
+.inspiration-metadata__item a {
+	font-weight: inherit ;
+}
+
+@media only screen and ( min-width: 900px )  {
+
+	.page-body {
+		margin: 20px auto 20px auto ;
+		width: 900px ;
+	}
+
+	.inspiration__caption {
+		display: flex ;
+	}
+
+	.inspiration__title {
+		flex: 1 1 auto ;
+	}
+
+	.inspiration__permalink {
+		display: block ;
+		flex: 0 0 auto ;
+	}
+
+} /* END: min-width: 600px */ ;
