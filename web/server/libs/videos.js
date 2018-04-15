@@ -91,5 +91,23 @@ module.exports = [
 				</p>
 			</blockquote>
 		`
+	},
+	{
+		id: "5-steve-hartman",
+		title: "On The Road: Holiday Sting Operation",
+		source: "https://www.youtube.com/embed/dtCuq4bu1XA",
+		url: "https://www.youtube.com/watch?v=dtCuq4bu1XA",
+		addedAt: "April 15, 2018",
+		author: {
+			name: "Steve Hartman",
+			url: "https://www.facebook.com/SteveHartman"
+		},
+		notes: `			
+			<p>
+				Every one of Steve Hartman's "On The Road" stories is inspiring. But,
+				some of them - like this one - really demonstrate how much of an inpact
+				small gestures can have on people who are in dire need of kindness.
+			</p>
+		`
 	}
 ];
