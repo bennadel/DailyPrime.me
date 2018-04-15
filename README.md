@@ -14,6 +14,36 @@ I am performing this experiment in the public eye in case anyone cares to contri
 to provide feedback and advice on how I am approaching the problem. When it comes to
 Docker, containerization, and server management, I am truly a "n00b".
 
+## Services
+
+### `proxy`
+
+This is the nginx ingress for the **local** web application. It sits in front of the
+`web` service, which is our Node.js process listening on port `:8080`.
+
+> **ASIDE**: When setting up the production server, I briefly used this `proxy` service
+> as the "production" proxy while I was provisioning the SSL certificate from the
+> LetsEncrypt cerbot (see `./scripts` folder).
+
+### `proxy-prod`
+
+This is the nginx ingress for the **production** web application. It sits in front of the
+`web` service (just like `proxy`). But, it exposes both `:80` and `:443` ports.
+
+### `statsd-mock`
+
+This is the StatsD server for the **local** development environment. It does not provide
+any StatsD functionality - it simply exposes port `:8125` and logs UDP messages to the
+console where they can be observed.
+
+> **ASIDE**: In production, I am using the containerized DataDog agent provided by
+> DataDog, which exposes DogStatsD functionality (see the `docker-compose.prod.yml` file
+> for `dd_agent`).
+
+### `web`
+
+I am the node.js web application that actual codes-up the app logic.
+
 ## Development Notes
 
 [My original blog post on this topic][bennadel-3419] outlines how I got this server up
