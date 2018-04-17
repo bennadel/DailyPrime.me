@@ -1,5 +1,5 @@
 #!/bin/bash
-/usr/bin/docker run -it --rm --name letsencrypt \
+/usr/bin/docker run --rm --name letsencrypt \
 	-v "/etc/letsencrypt:/etc/letsencrypt" \
 	quay.io/letsencrypt/letsencrypt:latest \
 		renew &&
@@ -30,4 +30,4 @@
 # I sent a DogStatsD metric to DataDog, recording the successful completion of the
 # certificate renewal.
 #
-/usr/local/bin/docker-compose -f /root/docker-compose.yml exec dd_agent bash -c "echo 'script.renew_certificate:1|c' > /dev/udp/127.0.0.1/8125"
+/usr/local/bin/docker-compose -f /root/docker-compose.yml exec -T dd_agent bash -c "echo 'script.renew_certificate:1|c' > /dev/udp/127.0.0.1/8125"

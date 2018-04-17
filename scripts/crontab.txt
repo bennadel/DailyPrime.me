@@ -1,0 +1,2 @@
+
+00 07 * * sun /root/scripts/renew_certificate.sh > /root/scripts/renew_certificate.sh.log 2>&1
