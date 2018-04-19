@@ -93,7 +93,7 @@ module.exports = [
 		`
 	},
 	{
-		id: "5-steve-hartman",
+		id: "5-steve-hartman-holiday-sting-operation",
 		title: "On The Road: Holiday Sting Operation",
 		source: "https://www.youtube.com/embed/dtCuq4bu1XA",
 		url: "https://www.youtube.com/watch?v=dtCuq4bu1XA",
@@ -107,6 +107,40 @@ module.exports = [
 				Every one of Steve Hartman's "On The Road" stories is inspiring. But,
 				some of them - like this one - really demonstrate how much of an inpact
 				small gestures can have on people who are in dire need of kindness.
+			</p>
+		`
+	},
+	{
+		id: "6-jonathan-ramirez-our-deepest-fear",
+		title: "Our Deepest Fear",
+		source: "https://www.youtube.com/embed/kvenFulzyu4",
+		url: "https://www.youtube.com/watch?v=kvenFulzyu4",
+		addedAt: "April 19, 2018",
+		author: {
+			name: "Jonathan Ramirez"
+		},
+		notes: `
+			<p>
+				While I appreciate that this poem (authored by Marianne Williamson)
+				speaks to being powerful, the part that resonates the most with me is
+				last line: that a facet of our power is the ability to liberate others
+				through our actions:
+			</p>
+
+			<blockquote>			
+				<p>
+					... and as we let our own light shine, we unconsciously give other
+					people permission to do the same. As we are liberated from our own
+					fear, our presence automatically liberates other.
+				</p>
+			</blockquote>
+
+			<p>
+				I find this to be particularly imporant in a work environment. As someone
+				who is unlikely to get fired from my company, I try to be the first one
+				to admit ignorance and doubt; or, to ask challenging questions. I try to 
+				sacrifice myself on the alter of dignity, such that others may feel
+				comfortable doing and feeling the same.
 			</p>
 		`
 	}
